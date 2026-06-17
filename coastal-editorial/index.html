@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vivian's Real Estate — Western Suburbs Property Specialists</title>
+<meta name="description" content="Boutique real estate in Perth's Western Suburbs. Mosman Park, Cottesloe, Claremont and beyond. Family-owned, locally trusted for over a decade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#efe9e0; --paper:#fbf9f4; --ink:#1e1e1c; --ink-soft:#5a544b; --ink-mute:#8a8478;
+  --ocean:#1b3a4b; --ocean-deep:#132c39; --terra:#c8603c; --terra-dark:#a84d2d;
+  --line:#ddd5c8; --line-soft:#e8e1d5;
+  --shadow:0 18px 50px rgba(30,30,28,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;line-height:1.05;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.eyebrow{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--terra);font-weight:500}
+.eyebrow.ocean{color:var(--ocean)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;padding:16px 30px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:.25s;white-space:nowrap}
+.btn-fill{background:var(--terra);color:#fff}
+.btn-fill:hover{background:var(--terra-dark);transform:translateY(-2px)}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn-light{border-color:rgba(255,255,255,.65);color:#fff}
+.btn-light:hover{background:#fff;color:var(--ink)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s}
+header .bar{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;transition:.4s;border-bottom:1px solid transparent}
+header.solid{background:rgba(251,249,244,.92);backdrop-filter:blur(12px)}
+header.solid .bar{padding:14px 40px;border-bottom:1px solid var(--line-soft)}
+.logo{font-family:'Fraunces',serif;font-weight:600;font-size:26px;letter-spacing:-.02em;color:#fff;transition:.4s;display:flex;align-items:center;gap:12px}
+header.solid .logo{color:var(--ink)}
+.logo .yrs{font-family:'Inter';font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;border:1px solid currentColor;border-radius:30px;padding:4px 9px;opacity:.85}
+nav.links{display:flex;gap:32px}
+nav.links a{font-size:13.5px;color:rgba(255,255,255,.92);letter-spacing:.02em;transition:.3s;position:relative}
+header.solid nav.links a{color:var(--ink-soft)}
+nav.links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--terra);transition:.3s}
+nav.links a:hover::after{width:100%}
+nav.links a:hover{color:var(--terra)}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-phone{font-size:13.5px;color:#fff;transition:.4s;letter-spacing:.02em}
+header.solid .nav-phone{color:var(--ink)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
+.burger span{width:24px;height:2px;background:#fff;transition:.3s}
+header.solid .burger span{background:var(--ink)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(120deg,var(--ocean-deep),#2a4a3a);background-size:cover;background-position:center;transform:scale(1.08);animation:slowzoom 18s ease-out forwards}
+@keyframes slowzoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,28,25,.72),rgba(19,28,25,.18) 60%,rgba(19,28,25,.05));z-index:1}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(40px,6vw,82px);font-weight:500;max-width:14ch;margin:18px 0 22px}
+.hero h1 em{font-style:italic;color:#f0cdae}
+.hero p.sub{font-size:18px;max-width:46ch;color:rgba(255,255,255,.9);font-weight:300}
+/* search */
+.search{margin-top:40px;background:rgba(251,249,244,.96);backdrop-filter:blur(8px);border-radius:4px;padding:10px;display:flex;gap:8px;max-width:880px;box-shadow:var(--shadow)}
+.search .field{flex:1;display:flex;flex-direction:column;padding:10px 16px;border-right:1px solid var(--line-soft)}
+.search .field:last-of-type{border-right:0}
+.search label{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.search select,.search input{border:0;background:none;font-family:'Inter';font-size:14px;color:var(--ink);outline:none;margin-top:4px;cursor:pointer}
+.search .btn{align-self:stretch}
+.scrolldown{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scrolldown::after{content:"";width:1px;height:46px;background:linear-gradient(rgba(255,255,255,.8),transparent);animation:drop 2s infinite}
+@keyframes drop{0%{opacity:0;transform:scaleY(.3)}40%{opacity:1}100%{opacity:0;transform:translateY(14px) scaleY(.5)}}
+
+/* TRUST STRIP */
+.trust{background:var(--ocean);color:#fff}
+.trust .wrap{display:flex;justify-content:space-between;gap:30px;padding:42px 40px;flex-wrap:wrap}
+.stat{text-align:center;flex:1;min-width:150px}
+.stat .num{font-family:'Fraunces',serif;font-size:42px;font-weight:500;color:#f0cdae}
+.stat .lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-top:6px}
+
+/* SECTION shells */
+.section{padding:120px 0}
+.section.sand{background:var(--sand)}
+.head{max-width:680px;margin-bottom:54px}
+.head h2{font-size:clamp(30px,4vw,52px);margin:14px 0 16px}
+.head p{color:var(--ink-soft);font-size:17px;max-width:54ch}
+.head.center{margin:0 auto 56px;text-align:center}
+
+/* LISTINGS */
+.filters{display:flex;gap:10px;margin-bottom:38px;flex-wrap:wrap}
+.filters button{font-family:'Inter';font-size:12.5px;letter-spacing:.06em;padding:10px 20px;border:1px solid var(--line);background:none;border-radius:30px;cursor:pointer;transition:.25s;color:var(--ink-soft)}
+.filters button.active,.filters button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.card{background:var(--paper);border-radius:4px;overflow:hidden;cursor:pointer;transition:.4s;border:1px solid var(--line-soft)}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card-img{position:relative;height:260px;overflow:hidden;background:linear-gradient(120deg,var(--ocean),#2a4a3a)}
+.card-img>span.ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:.7s}
+.card:hover .card-img>span.ph{transform:scale(1.06)}
+.badge{position:absolute;top:16px;left:16px;z-index:2;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:7px 12px;border-radius:2px;color:#fff;background:var(--terra)}
+.badge.uo{background:var(--ocean)}
+.badge.sold{background:#3a352e}
+.card-body{padding:24px}
+.card-body .suburb{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-weight:500}
+.card-body h3{font-size:21px;margin:9px 0 6px;font-weight:500}
+.card-body .price{font-family:'Inter';font-size:15px;color:var(--ink-soft);font-weight:500}
+.specs{display:flex;gap:18px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line-soft);font-size:13px;color:var(--ink-soft)}
+.specs span{display:flex;align-items:center;gap:6px}
+.specs b{font-weight:600;color:var(--ink)}
+.viewall{text-align:center;margin-top:52px}
+
+/* STORY */
+.story{display:grid;grid-template-columns:1.05fr 1fr;gap:0;align-items:stretch;background:var(--sand)}
+.story-img{min-height:560px;background-size:cover;background-position:center;background-color:var(--ocean)}
+.story-text{padding:90px 70px}
+.story-text h2{font-size:clamp(28px,3.4vw,46px);margin:18px 0 24px}
+.story-text p{color:var(--ink-soft);margin-bottom:18px;font-size:16.5px}
+.pullquote{font-family:'Fraunces',serif;font-style:italic;font-size:23px;line-height:1.4;color:var(--ocean);border-left:2px solid var(--terra);padding-left:24px;margin:30px 0}
+.signers{display:flex;gap:30px;margin-top:34px}
+.signer .nm{font-family:'Fraunces',serif;font-size:19px}
+.signer .rl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);margin-top:2px}
+
+/* AREAS */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.area{position:relative;height:440px;border-radius:4px;overflow:hidden;cursor:pointer;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.area .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:.8s;background-color:var(--ocean)}
+.area::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(19,28,25,.82),rgba(19,28,25,.05) 70%)}
+.area:hover .ph{transform:scale(1.07)}
+.area-body{position:relative;z-index:2;padding:30px}
+.area-body h3{font-size:28px;color:#fff}
+.area-body .median{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#f0cdae;margin:8px 0 10px}
+.area-body p{font-size:14px;color:rgba(255,255,255,.85);max-width:34ch}
+.area-body .more{margin-top:16px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--terra);padding-bottom:3px;display:inline-block}
+
+/* SELL CTA */
+.sell{position:relative;color:#fff;text-align:center;padding:130px 0;overflow:hidden}
+.sell .ph{position:absolute;inset:0;background-size:cover;background-position:center;background-color:var(--ocean-deep)}
+.sell::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(19,28,25,.84),rgba(19,28,25,.84))}
+.sell .wrap{position:relative;z-index:2}
+.sell h2{font-size:clamp(32px,4.4vw,58px);max-width:18ch;margin:18px auto 22px}
+.sell p{max-width:50ch;margin:0 auto 36px;color:rgba(255,255,255,.88);font-size:17px;font-weight:300}
+
+/* REPORT */
+.report{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center}
+.report-cover{position:relative}
+.report-cover .ph{height:520px;border-radius:4px;background-size:cover;background-position:center;box-shadow:var(--shadow);background-color:var(--ocean)}
+.report-cover .float{position:absolute;bottom:-26px;left:-26px;background:var(--terra);color:#fff;padding:22px 26px;border-radius:4px;max-width:200px}
+.report-cover .float .q{font-family:'Fraunces',serif;font-size:30px}
+.report-cover .float .l{font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+.report h2{font-size:clamp(30px,3.6vw,48px);margin:16px 0 20px}
+.report p{color:var(--ink-soft);font-size:16.5px;margin-bottom:26px;max-width:48ch}
+.signup{display:flex;gap:10px;max-width:460px;margin-top:8px}
+.signup input{flex:1;border:1px solid var(--line);border-radius:2px;padding:15px 18px;font-family:'Inter';font-size:14px;outline:none}
+.signup input:focus{border-color:var(--terra)}
+
+/* TESTIMONIALS */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.quote{background:var(--paper);border:1px solid var(--line-soft);border-radius:4px;padding:38px 34px}
+.stars{color:var(--terra);letter-spacing:3px;font-size:14px}
+.quote p{font-family:'Fraunces',serif;font-style:italic;font-size:18.5px;line-height:1.5;color:var(--ink);margin:18px 0 22px}
+.quote .who{font-size:13px;letter-spacing:.04em;color:var(--ink-mute)}
+.quote .who b{color:var(--ink);font-weight:600}
+
+/* INSTA */
+.insta-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px;flex-wrap:wrap;gap:16px}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.insta-grid .ph{aspect-ratio:1;background-size:cover;background-position:center;border-radius:3px;background-color:var(--sand);cursor:pointer;transition:.4s;position:relative}
+.insta-grid .ph:hover{opacity:.85;transform:scale(.98)}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:90px 0 36px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .logo{color:#fff;margin-bottom:20px}
+.fcols p{font-size:14px;line-height:1.7}
+.fcol h4{font-family:'Inter';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#f0cdae;margin-bottom:18px;font-weight:600}
+.fcol a{display:block;font-size:14px;margin-bottom:11px;transition:.25s}
+.fcol a:hover{color:#fff;padding-left:4px}
+.fbtm{display:flex;justify-content:space-between;padding-top:30px;font-size:12.5px;color:rgba(255,255,255,.45);flex-wrap:wrap;gap:14px}
+.socials{display:flex;gap:14px}
+.socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;transition:.25s}
+.socials a:hover{background:var(--terra);border-color:var(--terra);color:#fff}
+
+/* MOBILE */
+@media(max-width:980px){
+  .wrap{padding:0 24px}
+  nav.links,.nav-phone{display:none}
+  .burger{display:flex}
+  header.open nav.links{display:flex;position:fixed;inset:64px 0 auto 0;background:var(--paper);flex-direction:column;padding:24px;gap:18px;box-shadow:var(--shadow)}
+  header.open nav.links a{color:var(--ink)}
+  .grid,.areas,.quotes{grid-template-columns:1fr 1fr}
+  .story{grid-template-columns:1fr}.story-text{padding:56px 28px}.story-img{min-height:340px}
+  .report{grid-template-columns:1fr;gap:50px}.report-cover .ph{height:400px}
+  .search{flex-wrap:wrap}.search .field{flex:1 1 40%;border-right:0}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+  .fcols{grid-template-columns:1fr 1fr}
+  .section{padding:80px 0}
+}
+@media(max-width:600px){
+  .grid,.areas,.quotes,.fcols{grid-template-columns:1fr}
+  .hero h1{font-size:38px}
+  .section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="hdr">
+  <div class="bar">
+    <a href="#" class="logo">vivian's<span class="yrs">Est. Western Suburbs</span></a>
+    <nav class="links">
+      <a href="#listings">Buy</a><a href="#listings">Rent</a><a href="#sell">Sell</a>
+      <a href="#story">Manage</a><a href="#areas">The Suburbs</a><a href="#report">Report</a><a href="#footer">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="tel:0893844600" class="nav-phone">(08) 9384 4600</a>
+      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1900&q=80')"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="eyebrow" style="color:#f0cdae">Western Suburbs · Perth</div>
+      <h1>A quieter kind of confidence in <em>coastal</em> property.</h1>
+      <p class="sub">Boutique, family-run, and rooted in these streets for over a decade. From the river to the sea, Vivian's knows the Western Suburbs like home — because it is.</p>
+      <div class="search">
+        <div class="field"><label>Looking to</label><select><option>Buy</option><option>Rent</option><option>Sell</option></select></div>
+        <div class="field"><label>Suburb</label><select><option>All Western Suburbs</option><option>Mosman Park</option><option>Cottesloe</option><option>Claremont</option><option>Peppermint Grove</option><option>Nedlands</option></select></div>
+        <div class="field"><label>Type</label><select><option>Any</option><option>House</option><option>Apartment</option><option>Villa</option><option>Land</option></select></div>
+        <div class="field"><label>Beds</label><select><option>Any</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option></select></div>
+        <div class="btn btn-fill">Search</div>
+      </div>
+    </div>
+  </div>
+  <div class="scrolldown">Scroll</div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">
+    <div class="stat reveal"><div class="num">11</div><div class="lab">Years on these streets</div></div>
+    <div class="stat reveal d1"><div class="num">420+</div><div class="lab">Local homes sold</div></div>
+    <div class="stat reveal d2"><div class="num">$1.4B</div><div class="lab">In Western Suburbs sales</div></div>
+    <div class="stat reveal d3"><div class="num">4.9★</div><div class="lab">Average client rating</div></div>
+  </div>
+</div>
+
+<!-- LISTINGS -->
+<section class="section" id="listings">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Currently with Vivian's</div>
+      <h2>Homes worth coming home to.</h2>
+      <p>A considered selection of what's moving across the Western Suburbs right now — from lock-and-leave apartments to riverside estates.</p>
+    </div>
+    <div class="filters reveal">
+      <button class="active" data-f="all">All</button>
+      <button data-f="sale">For Sale</button>
+      <button data-f="uo">Under Offer</button>
+      <button data-f="sold">Recently Sold</button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="viewall reveal"><a class="btn btn-line" href="#">View all listings</a></div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-img reveal" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80')"></div>
+  <div class="story-text reveal d1">
+    <div class="eyebrow ocean">The Vivian's difference</div>
+    <h2>The name was on the corner long before it was on the sign.</h2>
+    <p>For decades the Vivian name meant the local plumbing business near the Cottesloe Boat Shed — a family known for turning up, doing it properly, and treating neighbours like neighbours.</p>
+    <p>Today that same name is an independent force in Western Suburbs real estate. Same family. Same patch. Same idea: look after people, and the rest follows.</p>
+    <div class="pullquote">"We don't sell suburbs we've only driven through. We grew up here, and we're raising the next lot here too."</div>
+    <div class="signers">
+      <div class="signer"><div class="nm">Trent Vivian</div><div class="rl">Director &amp; Licensee</div></div>
+      <div class="signer"><div class="nm">Gill Vivian</div><div class="rl">Founding Director</div></div>
+    </div>
+    <div style="margin-top:34px"><a class="btn btn-line" href="#">Our story</a></div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="section sand" id="areas">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Know the streets, not just the suburb</div>
+      <h2>Area guides from people who actually live here.</h2>
+      <p>The cafés, the catchments, the quiet streets that come up once a year. Real local knowledge — not a portal printout.</p>
+    </div>
+    <div class="areas">
+      <div class="area reveal" data-a><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1505764706515-aa95265c5abc?w=1000&q=80')"></span>
+        <div class="area-body"><h3>Mosman Park</h3><div class="median">Median house · $2.1M</div><p>River one side, ocean the other. Our home ground.</p><span class="more">Explore Mosman Park</span></div></div>
+      <div class="area reveal d1" data-a><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1000&q=80')"></span>
+        <div class="area-body"><h3>Cottesloe</h3><div class="median">Median house · $3.0M</div><p>Beach-life prestige, from the Boat Shed to the pylon.</p><span class="more">Explore Cottesloe</span></div></div>
+      <div class="area reveal d2" data-a><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=1000&q=80')"></span>
+        <div class="area-body"><h3>Claremont</h3><div class="median">Median house · $2.4M</div><p>Heritage, shopping and the best of the river precinct.</p><span class="more">Explore Claremont</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SELL CTA -->
+<section class="sell" id="sell">
+  <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1700&q=80')"></div>
+  <div class="wrap">
+    <div class="eyebrow" style="color:#f0cdae">Thinking of selling?</div>
+    <h2>A considered appraisal, not a sales pitch.</h2>
+    <p>Find out what your home is genuinely worth in today's Western Suburbs market — with advice from agents who'll still be here next year, and the year after.</p>
+    <a class="btn btn-light" href="#">What's my home worth?</a>
+  </div>
+</section>
+
+<!-- REPORT -->
+<section class="section" id="report">
+  <div class="wrap report">
+    <div class="report-cover reveal">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80')"></div>
+      <div class="float"><div class="q">Q3</div><div class="l">Mosman Park Report 2026</div></div>
+    </div>
+    <div class="report-text reveal d1">
+      <div class="eyebrow">The Mosman Park Report</div>
+      <h2>The local market, quarterly, in your inbox.</h2>
+      <p>Sales, trends and street-level commentary you won't get from a national portal. The report locals actually read — straight from the people selling the homes.</p>
+      <form class="signup" onsubmit="return false">
+        <input type="email" placeholder="Your email address" required>
+        <button class="btn btn-fill" type="submit">Send it to me</button>
+      </form>
+      <p style="font-size:13px;color:var(--ink-mute);margin-top:14px">Quarterly. No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section sand">
+  <div class="wrap">
+    <div class="head center reveal"><div class="eyebrow">In their words</div><h2>The kind of word-of-mouth you can't buy.</h2></div>
+    <div class="quotes">
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>"Honest, hard-working and genuinely lovely. The team made a stressful sale feel effortless — and got us a result above expectation."</p><div class="who"><b>Holly Murphy</b> · Mosman Park</div></div>
+      <div class="quote reveal d1"><div class="stars">★★★★★</div><p>"Highly recommended. Their local knowledge is unmatched and they were professional and helpful at every step."</p><div class="who"><b>D &amp; H Tan</b> · Claremont</div></div>
+      <div class="quote reveal d2"><div class="stars">★★★★★</div><p>"You feel like family, not a transaction. We've now bought and sold with Vivian's twice — wouldn't go anywhere else."</p><div class="who"><b>The Bennett Family</b> · Cottesloe</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTA -->
+<section class="section">
+  <div class="wrap">
+    <div class="insta-head reveal">
+      <div><div class="eyebrow">Life around the suburbs</div><h2 style="font-size:34px;margin-top:12px">@viviansrealestate</h2></div>
+      <a class="btn btn-line" href="#">Follow along</a>
+    </div>
+    <div class="insta-grid reveal d1">
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=400&q=70')"></span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <div class="logo">vivian's</div>
+        <p>Boutique real estate for Perth's Western Suburbs.<br>Family-owned. Locally trusted.</p>
+        <div class="socials" style="margin-top:24px">
+          <a href="#">f</a><a href="#">◎</a><a href="#">▶</a>
+        </div>
+      </div>
+      <div class="fcol"><h4>Discover</h4><a href="#listings">Buy</a><a href="#listings">Rent</a><a href="#sell">Sell</a><a href="#story">Property Management</a><a href="#">Vivian's Stayz</a></div>
+      <div class="fcol"><h4>The Firm</h4><a href="#story">Our Story</a><a href="#story">Meet the Team</a><a href="#report">Mosman Park Report</a><a href="#">Journal</a><a href="#footer">Contact</a></div>
+      <div class="fcol"><h4>Visit</h4><a href="#">43 Victoria Street<br>Mosman Park, WA 6012</a><a href="tel:0893844600">(08) 9384 4600</a><a href="mailto:info@viviansrealestate.com.au">info@viviansrealestate.com.au</a></div>
+    </div>
+    <div class="fbtm">
+      <span>© 2026 Vivian's Real Estate. All rights reserved.</span>
+      <span>Proudly on Whadjuk Noongar boodja.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// nav scroll state
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>60));
+// mobile menu
+document.getElementById('burger').onclick=()=>hdr.classList.toggle('open');
+// reveal
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// listings data
+const L=[
+ {s:'Mosman Park',a:'8 Wellington Street',p:'Offers from $2.95M',b:4,ba:2,c:2,ar:'612m²',st:'sale',img:'1600596542815-ffad4c1539a9'},
+ {s:'Cottesloe',a:'14 Marine Parade',p:'Expressions of Interest',b:4,ba:3,c:2,ar:'506m²',st:'sale',img:'1512917774080-9991f1c4c750'},
+ {s:'Claremont',a:'6/375 Stirling Highway',p:'From $695,000',b:1,ba:1,c:1,ar:'72m²',st:'sale',img:'1505691938895-1758d7feb511'},
+ {s:'Peppermint Grove',a:'21 Leake Street',p:'Contact Agent',b:5,ba:4,c:3,ar:'1,012m²',st:'uo',img:'1613490493576-7fde63acd811'},
+ {s:'Mosman Park',a:'19/15 Boundary Road',p:'Under Offer',b:3,ba:2,c:1,ar:'115m²',st:'uo',img:'1600607687939-ce8a6c25118c'},
+ {s:'Nedlands',a:'12 Vincent Street',p:'Sold · $3,200,000',b:4,ba:2,c:2,ar:'728m²',st:'sold',img:'1576941089067-2de3c901e126'},
+ {s:'Mosman Park',a:'33/4 Dover Court',p:'Sold · $1,925,000',b:3,ba:2,c:1,ar:'203m²',st:'sold',img:'1600585154340-be6161a56a0c'},
+ {s:'Cottesloe',a:'7 Napier Street',p:'Sold · $4,150,000',b:5,ba:3,c:2,ar:'683m²',st:'sold',img:'1600047509807-ba8f99d2cdde'},
+ {s:'Claremont',a:'2A Stirling Road',p:'Offers Invited',b:3,ba:2,c:2,ar:'341m²',st:'sale',img:'1600566753190-17f0baa2a6c3'},
+];
+const badge={sale:['',' For Sale'],uo:['uo','Under Offer'],sold:['sold','Sold']};
+const grid=document.getElementById('grid');
+function render(f){
+  grid.innerHTML='';
+  L.filter(x=>f==='all'||x.st===f).forEach(x=>{
+    const [cls,txt]=badge[x.st];
+    grid.insertAdjacentHTML('beforeend',`
+    <div class="card reveal">
+      <div class="card-img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-${x.img}?w=800&q=80')"></span><span class="badge ${cls}">${txt}</span></div>
+      <div class="card-body">
+        <div class="suburb">${x.s}</div>
+        <h3>${x.a}</h3>
+        <div class="price">${x.p}</div>
+        <div class="specs"><span><b>${x.b}</b> Bed</span><span><b>${x.ba}</b> Bath</span><span><b>${x.c}</b> Car</span><span><b>${x.ar}</b></span></div>
+      </div>
+    </div>`);
+  });
+  grid.querySelectorAll('.reveal').forEach(el=>{io.observe(el)});
+}
+render('all');
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+  document.querySelector('.filters .active').classList.remove('active');
+  b.classList.add('active');render(b.dataset.f);
+});
+</script>
+</body>
+</html>
