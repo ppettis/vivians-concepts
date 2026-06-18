@@ -29,6 +29,9 @@ img{display:block;max-width:100%}
 .btn-dark{border-color:rgba(18,18,17,.4);color:#1a1a18}
 .btn-dark:hover{background:#1a1a18;color:var(--ivory)}
 
+.pm-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.pm-row .pm-img{min-height:460px;background-size:cover;background-position:center;filter:grayscale(.2)}
+@media(max-width:980px){.pm-row{grid-template-columns:1fr;gap:36px}.pm-row .pm-img{min-height:300px}}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
@@ -200,8 +203,8 @@ footer .logo{margin-bottom:22px}
   <div class="bar">
     <a href="#" class="logo">VIVIAN'S<span class="yrs">Since 1931</span></a>
     <nav class="links">
-      <a href="#listings">Buy</a><a href="#listings">Rent</a><a href="#sell">Sell</a>
-      <a href="#story">Manage</a><a href="#areas">The Suburbs</a><a href="#report">Report</a><a href="#footer">Contact</a>
+      <a href="#listings">Buy</a><a href="#rentals">Rent</a><a href="#sell">Sell</a>
+      <a href="#manage">Manage</a><a href="#areas">The Suburbs</a><a href="#report">Report</a><a href="#footer">Contact</a>
     </nav>
     <div class="nav-right">
       <a href="tel:0893844600" class="nav-phone">(08) 9384 4600</a>
@@ -261,10 +264,52 @@ footer .logo{margin-bottom:22px}
       <button class="active" data-f="all">All</button>
       <button data-f="sale">For Sale</button>
       <button data-f="uo">Under Offer</button>
-      <button data-f="sold">Recently Sold</button>
     </div>
     <div class="grid" id="grid"></div>
     <div class="viewall reveal"><a class="btn btn-line" href="#">View the full collection</a></div>
+  </div>
+</section>
+
+<!-- PROPERTY MANAGEMENT -->
+<section class="section" id="manage">
+  <div class="wrap pm-row">
+    <div class="reveal">
+      <div class="eyebrow">Property Management</div>
+      <h2 style="font-size:clamp(28px,3.6vw,46px);margin:14px 0 22px">Your investment, in safe hands.</h2>
+      <p style="color:var(--ivory-soft);font-size:16.5px;margin-bottom:16px">Let's face it — leasing a property has fast become a complicated process. Here at Vivian's we make it our mission to take that responsibility off your hands, and give you peace of mind that your investment is safe and secure.</p>
+      <p style="color:var(--ivory-soft);font-size:16.5px;margin-bottom:26px">From vetting the right tenant to the proactive care of your asset, we give you back the time you deserve to enjoy your life.</p>
+      <a class="btn btn-line" href="#">Property Management</a>
+    </div>
+    <div class="pm-img reveal d1" style="background-image:url('../assets/p-hope.jpg')"></div>
+  </div>
+</section>
+
+<!-- FIND A RENTAL -->
+<section class="section report-sec" id="rentals">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">Rentals</div>
+      <h2>Find A Rental With Ease</h2>
+      <p>Quality homes for lease across the Western Suburbs — managed with the care we'd give our own.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal">
+        <div class="ph" style="background-image:url('../assets/r-stleonards.jpg')"></div>
+        <span class="badge">For Lease</span>
+        <div class="card-body"><div class="suburb">Mosman Park</div><h3>6/11-15 St Leonards Street</h3><div class="price">$700 per week</div><div class="specs"><span><b>2</b> Bed</span><span><b>1</b> Bath</span><span><b>1</b> Car</span><span><b>Available</b></span></div></div>
+      </div>
+      <div class="card reveal d1">
+        <div class="ph" style="background-image:url('../assets/r-stirling650.jpg')"></div>
+        <span class="badge">For Lease</span>
+        <div class="card-body"><div class="suburb">Mosman Park</div><h3>21/650 Stirling Highway</h3><div class="price">$560 per week</div><div class="specs"><span><b>1</b> Bed</span><span><b>1</b> Bath</span><span><b>1</b> Car</span><span><b>Available</b></span></div></div>
+      </div>
+      <div class="card reveal d2">
+        <div class="ph" style="background-image:url('../assets/r-murray.jpg')"></div>
+        <span class="badge sold">Recently Leased</span>
+        <div class="card-body"><div class="suburb">Mosman Park</div><h3>130/2 Murray Avenue</h3><div class="price">Leased · $550 p/w</div><div class="specs"><span><b>2</b> Bed</span><span><b>1</b> Bath</span><span><b>1</b> Car</span><span><b>Let by us</b></span></div></div>
+      </div>
+    </div>
+    <div class="viewall reveal"><a class="btn btn-line" href="#">View all rentals</a></div>
   </div>
 </section>
 
@@ -377,7 +422,7 @@ footer .logo{margin-bottom:22px}
         <p class="blurb">Boutique real estate for Perth's Western Suburbs.<br>A family name these streets have trusted since 1931.</p>
         <div class="socials"><a href="#">f</a><a href="#">◎</a><a href="#">▶</a></div>
       </div>
-      <div class="fcol"><h4>Discover</h4><a href="#listings">Buy</a><a href="#listings">Rent</a><a href="#sell">Sell</a><a href="#story">Property Management</a><a href="#">Vivian's Stayz</a></div>
+      <div class="fcol"><h4>Discover</h4><a href="#listings">Buy</a><a href="#listings">Rent</a><a href="#sell">Sell</a><a href="#manage">Property Management</a><a href="#">Vivian's Stayz</a></div>
       <div class="fcol"><h4>The Firm</h4><a href="#story">Our Story</a><a href="#story">Meet the Team</a><a href="#report">Mosman Park Report</a><a href="#">Journal</a><a href="#footer">Contact</a></div>
       <div class="fcol"><h4>Visit</h4><a href="#">43 Victoria Street<br>Mosman Park, WA 6012</a><a href="tel:0893844600">(08) 9384 4600</a><a href="mailto:info@viviansrealestate.com.au">info@viviansrealestate.com.au</a></div>
     </div>
@@ -396,15 +441,12 @@ const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.ta
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 const L=[
- {s:'Mosman Park',a:'8 Wellington Street',p:'Offers from $2.95M',b:4,ba:2,c:2,ar:'612m²',st:'sale',img:'1600596542815-ffad4c1539a9'},
- {s:'Cottesloe',a:'14 Marine Parade',p:'Expressions of Interest',b:4,ba:3,c:2,ar:'506m²',st:'sale',img:'1512917774080-9991f1c4c750'},
- {s:'Claremont',a:'6/375 Stirling Highway',p:'From $695,000',b:1,ba:1,c:1,ar:'72m²',st:'sale',img:'1505691938895-1758d7feb511'},
- {s:'Peppermint Grove',a:'21 Leake Street',p:'Contact Agent',b:5,ba:4,c:3,ar:'1,012m²',st:'uo',img:'1613490493576-7fde63acd811'},
- {s:'Mosman Park',a:'19/15 Boundary Road',p:'Under Offer',b:3,ba:2,c:1,ar:'115m²',st:'uo',img:'1600607687939-ce8a6c25118c'},
- {s:'Nedlands',a:'12 Vincent Street',p:'Sold · $3,200,000',b:4,ba:2,c:2,ar:'728m²',st:'sold',img:'1576941089067-2de3c901e126'},
- {s:'Mosman Park',a:'33/4 Dover Court',p:'Sold · $1,925,000',b:3,ba:2,c:1,ar:'203m²',st:'sold',img:'1600585154340-be6161a56a0c'},
- {s:'Cottesloe',a:'7 Napier Street',p:'Sold · $4,150,000',b:5,ba:3,c:2,ar:'683m²',st:'sold',img:'1600047509807-ba8f99d2cdde'},
- {s:'Claremont',a:'2A Stirling Road',p:'Offers Invited',b:3,ba:2,c:2,ar:'341m²',st:'sale',img:'1600566753190-17f0baa2a6c3'},
+ {s:'Mosman Park',a:'41 Hope Street',p:'From $3,550,000',b:4,ba:2,c:4,ar:'819m²',st:'sale',img:'../assets/p-hope.jpg'},
+ {s:'Scarborough',a:'75B Calais Road',p:'Offers in the mid-millions',b:4,ba:2,c:2,ar:'279m²',st:'sale',img:'../assets/p-calais75.jpg'},
+ {s:'Mosman Park',a:'24 The Cutting',p:'Contact Agent',b:4,ba:2,c:3,ar:'350m²',st:'sale',img:'../assets/p-cutting.jpg'},
+ {s:'Bushmead',a:'16 Freeman View',p:'From $1,190,000',b:3,ba:2,c:2,ar:'445m²',st:'sale',img:'../assets/p-freeman.jpg'},
+ {s:'Kallaroo',a:'20 Warringah Close',p:'Back on the Market',b:4,ba:2,c:2,ar:'855m²',st:'sale',img:'../assets/p-warringah.jpg'},
+ {s:'Scarborough',a:'71C Calais Road',p:'Under Offer',b:4,ba:2,c:2,ar:'286m²',st:'uo',img:'../assets/p-calais71.jpg'},
 ];
 const badge={sale:['','For Sale'],uo:['','Under Offer'],sold:['sold','Sold']};
 const grid=document.getElementById('grid');
@@ -414,7 +456,7 @@ function render(f){
     const [cls,txt]=badge[x.st];
     grid.insertAdjacentHTML('beforeend',`
     <div class="card reveal">
-      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-${x.img}?w=800&q=80')"></div>
+      <div class="ph" style="background-image:url('${x.img}')"></div>
       <span class="badge ${cls}">${txt}</span>
       <div class="card-body">
         <div class="suburb">${x.s}</div>
