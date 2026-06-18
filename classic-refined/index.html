@@ -80,10 +80,10 @@ header.solid .burger span{background:var(--ink)}
 .hero{position:relative;height:100vh;min-height:660px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.07);animation:zoom 16s ease-out forwards;background-color:#c98a4e}
 @keyframes zoom{to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(125% 105% at 50% 28%,rgba(39,28,18,.12),rgba(39,28,18,.62)),linear-gradient(180deg,rgba(39,28,18,.45),rgba(39,28,18,.14) 42%,rgba(39,28,18,.55));z-index:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,8,.16),rgba(20,14,8,0) 34%,rgba(20,14,8,.26));z-index:1}
 .hero-inner{position:relative;z-index:2;padding:0 24px}
 .hero .eyebrow{color:#f2d8bd;margin-bottom:20px;opacity:0;animation:riseIn .9s cubic-bezier(.16,1,.3,1) .25s forwards}
-.hero h1{font-size:clamp(38px,6.2vw,76px);font-weight:500;max-width:15ch;margin:0 auto 36px;text-shadow:0 2px 34px rgba(0,0,0,.32);opacity:0;animation:riseIn 1s cubic-bezier(.16,1,.3,1) .42s forwards}
+.hero h1{font-size:clamp(38px,6.2vw,76px);font-weight:500;max-width:15ch;margin:0 auto 36px;text-shadow:0 2px 20px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.45);opacity:0;animation:riseIn 1s cubic-bezier(.16,1,.3,1) .42s forwards}
 .hero .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:riseIn .9s cubic-bezier(.16,1,.3,1) .64s forwards}
 @keyframes riseIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 .scrolldown{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85);display:flex;flex-direction:column;align-items:center;gap:9px}
@@ -95,6 +95,8 @@ header.solid .burger span{background:var(--ink)}
 .section.sand{background:var(--sand)}
 .center-head{text-align:center;max-width:680px;margin:0 auto 64px}
 .center-head h2{font-size:clamp(32px,4.5vw,54px);margin:14px 0}
+#discover .center-head h2{white-space:nowrap}
+@media(max-width:720px){#discover .center-head h2{white-space:normal;font-size:30px}}
 .center-head p{color:var(--grey);font-size:16px}
 .rule{width:54px;height:2px;background:var(--orange);margin:0 auto 22px}
 
@@ -312,7 +314,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
 
 <!-- COMMUNITY BAND -->
 <section class="band">
-  <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1505764706515-aa95265c5abc?w=1700&q=80')"></div>
+  <div class="ph" style="background-image:url('assets/community.webp')"></div>
   <div class="wrap reveal">
     <div class="eyebrow" style="color:#f0cdae">Proudly local</div>
     <h2>A part of the Western Suburbs community - not just working in it.</h2>
