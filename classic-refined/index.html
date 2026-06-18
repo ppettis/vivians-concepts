@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vivian's Real Estate — Your Western Suburb Property Specialists</title>
+<meta name="description" content="Vivian's Real Estate — a boutique property agency in Perth's Western Suburbs, established 2015. Sales, leasing, property management and the Mosman Park Report.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#df6b25; --orange-dk:#c25a1c; --ink:#272421; --grey:#6f6a62; --mute:#9a9389;
+  --paper:#fbfaf7; --sand:#f4efe8; --line:#e7e1d6; --line-soft:#efeae1;
+  --shadow:0 16px 44px rgba(39,36,33,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08;letter-spacing:.005em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--orange);font-weight:400}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Jost';font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;padding:14px 30px;cursor:pointer;border:1px solid var(--orange);transition:.28s;background:none;color:var(--orange)}
+.btn:hover{background:var(--orange);color:#fff}
+.btn-fill{background:var(--orange);color:#fff}
+.btn-fill:hover{background:var(--orange-dk);border-color:var(--orange-dk)}
+.btn-light{border-color:rgba(255,255,255,.7);color:#fff}
+.btn-light:hover{background:#fff;color:var(--ink);border-color:#fff}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* HEADER — centred logo + anniversary badge, hamburger right (as per the brief) */
+header{position:fixed;top:0;left:0;right:0;z-index:90;transition:.4s}
+header .bar{position:relative;display:flex;align-items:center;justify-content:center;padding:24px 40px;transition:.4s;border-bottom:1px solid transparent}
+header.solid{background:rgba(251,250,247,.94);backdrop-filter:blur(10px)}
+header.solid .bar{padding:14px 40px;border-bottom:1px solid var(--line-soft)}
+.brand{display:flex;align-items:center;gap:14px;color:#fff;transition:.4s}
+header.solid .brand{color:var(--ink)}
+.brand .name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;letter-spacing:.01em;line-height:1}
+.brand .name small{display:block;font-family:'Jost';font-weight:400;font-size:9px;letter-spacing:.42em;text-transform:uppercase;margin-top:3px;opacity:.85}
+.badge11{width:50px;height:50px;border-radius:50%;border:1.5px solid var(--orange);color:var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;line-height:.85;flex-shrink:0}
+.badge11 b{font-size:21px;font-weight:600}
+.badge11 span{font-family:'Jost';font-size:6px;letter-spacing:.12em;text-transform:uppercase;margin-top:2px}
+.burger{position:absolute;right:40px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
+.burger span{width:26px;height:1.5px;background:#fff;transition:.4s}
+header.solid .burger span{background:var(--ink)}
+
+/* SLIDE MENU */
+.overlay{position:fixed;inset:0;background:rgba(39,36,33,.5);opacity:0;visibility:hidden;transition:.4s;z-index:95}
+.overlay.open{opacity:1;visibility:visible}
+.menu{position:fixed;top:0;right:0;height:100%;width:min(760px,100%);background:#fff;z-index:96;transform:translateX(100%);transition:transform .5s cubic-bezier(.16,1,.3,1);display:grid;grid-template-columns:300px 1fr}
+.menu.open{transform:none}
+.menu .pic{background-size:cover;background-position:center;background-color:var(--sand)}
+.menu .body{padding:46px 48px;display:flex;flex-direction:column}
+.menu .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:46px}
+.menu .top .name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;color:var(--orange)}
+.menu .close{background:none;border:0;font-size:26px;color:var(--orange);cursor:pointer;line-height:1}
+.menu nav a{display:block;font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--ink);padding:9px 0;transition:.25s}
+.menu nav a:hover{color:var(--orange);padding-left:8px}
+.menu .foot{margin-top:auto;padding-top:34px;font-size:13px;color:var(--grey);line-height:1.9}
+.menu .socials{display:flex;gap:14px;margin-bottom:18px}
+.menu .socials a{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--grey);transition:.25s}
+.menu .socials a:hover{border-color:var(--orange);color:var(--orange)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:660px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.07);animation:zoom 16s ease-out forwards;background-color:#c98a4e}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(39,28,18,.42),rgba(39,28,18,.12) 40%,rgba(39,28,18,.5));z-index:1}
+.hero-inner{position:relative;z-index:2;padding:0 24px}
+.hero h1{font-size:clamp(38px,6.2vw,76px);font-weight:500;max-width:15ch;margin:0 auto 36px;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.hero .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.scrolldown{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85);display:flex;flex-direction:column;align-items:center;gap:9px}
+.scrolldown::after{content:"";width:1px;height:42px;background:linear-gradient(rgba(255,255,255,.85),transparent);animation:drop 2s infinite}
+@keyframes drop{0%{opacity:0;transform:scaleY(.3)}40%{opacity:1}100%{opacity:0;transform:translateY(12px) scaleY(.5)}}
+
+/* SECTIONS */
+.section{padding:120px 0}
+.section.sand{background:var(--sand)}
+.center-head{text-align:center;max-width:680px;margin:0 auto 64px}
+.center-head h2{font-size:clamp(32px,4.5vw,54px);margin:14px 0}
+.center-head p{color:var(--grey);font-size:16px}
+.rule{width:54px;height:2px;background:var(--orange);margin:0 auto 22px}
+
+/* WHY VIVIAN'S */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.why h2{font-size:clamp(32px,4vw,52px);margin:16px 0 22px}
+.why p{color:var(--grey);font-size:16.5px;margin-bottom:18px}
+.why .pic{height:520px;background-size:cover;background-position:center;background-color:var(--sand);position:relative}
+.why .cap{position:absolute;left:0;bottom:0;background:var(--orange);color:#fff;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:12px 20px}
+
+/* PROPERTY CARDS */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.pcard{background:var(--paper);cursor:pointer;transition:.35s;text-align:center}
+.pcard:hover{transform:translateY(-6px)}
+.pcard .img{position:relative;height:250px;overflow:hidden;background-color:var(--sand)}
+.pcard .img .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:.7s}
+.pcard:hover .img .ph{transform:scale(1.06)}
+.pcard .tags{position:absolute;top:14px;left:14px;display:flex;gap:7px;z-index:2}
+.pcard .tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;background:var(--orange);color:#fff}
+.pcard .tag.dk{background:rgba(39,36,33,.82)}
+.pcard .pad{padding:24px 18px 30px}
+.pcard .suburb{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+.pcard h3{font-size:25px;margin:8px 0 14px}
+.specs{display:flex;justify-content:center;gap:18px;font-size:13px;color:var(--grey);padding-bottom:16px;border-bottom:1px solid var(--line-soft)}
+.specs b{color:var(--ink);font-weight:500}
+.pcard .status{margin-top:16px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);border:1px solid var(--line);display:inline-block;padding:9px 18px}
+.viewall{text-align:center;margin-top:54px}
+
+/* PROPERTY MANAGEMENT */
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;background:var(--sand)}
+.pm .pic{min-height:520px;background-size:cover;background-position:center;background-color:#c98a4e}
+.pm .text{padding:90px 70px}
+.pm h2{font-size:clamp(30px,3.6vw,46px);margin:16px 0 22px}
+.pm p{color:var(--grey);font-size:16.5px;margin-bottom:18px}
+
+/* COMMUNITY BAND */
+.band{position:relative;padding:140px 0;text-align:center;color:#fff;overflow:hidden}
+.band .ph{position:absolute;inset:0;background-size:cover;background-position:center;background-color:#3a5160}
+.band::after{content:"";position:absolute;inset:0;background:rgba(39,36,33,.5)}
+.band .wrap{position:relative;z-index:2}
+.band h2{font-size:clamp(30px,4.4vw,54px);max-width:20ch;margin:14px auto 0}
+
+/* GET IN TOUCH */
+.touch{text-align:center}
+.touch h2{font-size:clamp(34px,4.6vw,58px);margin:14px 0 18px}
+.touch p{color:var(--grey);max-width:48ch;margin:0 auto 32px;font-size:16.5px}
+
+/* REPORT */
+.report{background:var(--ink);color:#fff;text-align:center}
+.report .eyebrow{color:var(--orange)}
+.report h2{font-size:clamp(32px,4.4vw,52px);margin:14px 0 16px;color:#fff}
+.report p{color:rgba(255,255,255,.7);max-width:50ch;margin:0 auto 34px;font-size:16px}
+.signup{display:flex;gap:10px;max-width:520px;margin:0 auto}
+.signup input{flex:1;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.05);color:#fff;padding:16px 20px;font-family:'Jost';font-size:14px;outline:none}
+.signup input::placeholder{color:rgba(255,255,255,.5)}
+.signup input:focus{border-color:var(--orange)}
+
+/* INSTAGRAM */
+.insta-head{text-align:center;margin-bottom:38px}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.insta-grid .ph{aspect-ratio:1;background-size:cover;background-position:center;background-color:var(--sand);cursor:pointer;transition:.4s;position:relative}
+.insta-grid .ph::after{content:"";position:absolute;inset:0;background:var(--orange);opacity:0;transition:.3s}
+.insta-grid .ph:hover::after{opacity:.18}
+
+/* FOOTER */
+footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 36px;text-align:center}
+.fbrand{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:34px;color:var(--orange)}
+.fsoc{display:flex;gap:14px;justify-content:center;margin:18px 0 12px}
+.fsoc a{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--grey);transition:.25s}
+.fsoc a:hover{border-color:var(--orange);color:var(--orange)}
+.fcontact{font-size:13.5px;color:var(--grey);line-height:1.9;margin-bottom:46px}
+.fcols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:760px;margin:0 auto;padding:44px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.fcol h4{font-family:'Jost';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:16px;font-weight:500}
+.fcol a{display:block;font-size:13.5px;color:var(--grey);margin-bottom:10px;transition:.2s}
+.fcol a:hover{color:var(--orange)}
+.fcopy{margin-top:30px;font-size:12px;color:var(--mute);letter-spacing:.04em}
+
+@media(max-width:980px){
+  .wrap{padding:0 24px}
+  .burger{right:24px}
+  .why,.pm{grid-template-columns:1fr}.why .pic{height:360px}.pm .text{padding:56px 28px}.pm .pic{min-height:320px}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .insta-grid{grid-template-columns:repeat(3,1fr)}
+  .menu{grid-template-columns:1fr}.menu .pic{display:none}
+  .section{padding:84px 0}
+}
+@media(max-width:600px){
+  .pgrid,.fcols{grid-template-columns:1fr}
+  .hero h1{font-size:40px}.section{padding:64px 0}
+  .signup{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="bar">
+    <a href="#" class="brand">
+      <span class="name">vivian's<small>Real Estate</small></span>
+      <span class="badge11"><b>11</b><span>Years</span></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- SLIDE MENU -->
+<div class="overlay" id="overlay"></div>
+<aside class="menu" id="menu">
+  <div class="pic" style="background-image:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=900&q=80')"></div>
+  <div class="body">
+    <div class="top"><span class="name">vivian's</span><button class="close" id="close" aria-label="Close menu">✕</button></div>
+    <nav>
+      <a href="#why">Why Vivian's</a>
+      <a href="#discover">For Sale</a>
+      <a href="#rentals">Rentals</a>
+      <a href="#management">Services</a>
+      <a href="#report">Mosman Park Report</a>
+      <a href="#">Blog</a>
+      <a href="#touch">Contact</a>
+    </nav>
+    <div class="foot">
+      <div class="socials"><a href="#">f</a><a href="#">◎</a><a href="#">▶</a></div>
+      (08) 9384 4600<br>reception@viviansrealestate.com.au<br>43 Victoria Street, Mosman Park, WA 6012
+    </div>
+  </div>
+</aside>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1900&q=80')"></div>
+  <div class="hero-inner">
+    <h1>Your Western Suburb Property Specialists</h1>
+    <div class="ctas">
+      <a class="btn btn-fill" href="#discover">Sales</a>
+      <a class="btn btn-light" href="#rentals">Leasing</a>
+      <a class="btn btn-light" href="#why">Advice</a>
+    </div>
+  </div>
+  <div class="scrolldown">Scroll</div>
+</section>
+
+<!-- WHY VIVIAN'S -->
+<section class="section" id="why">
+  <div class="wrap why">
+    <div class="reveal">
+      <div class="eyebrow">A boutique agency, established 2015</div>
+      <h2>Why Vivian's?</h2>
+      <p>The Vivian name is well known to many in the area for the landmark Vivian's Plumbing business that for decades operated in Cottesloe, near the Boat Shed. Now the Vivian name re-emerges as a new, independent force in the local real estate sector.</p>
+      <p>A family-owned, boutique agency known for high standards and unmatched service — built on a simple idea: treat our clients like we would treat our own family.</p>
+      <a class="btn" href="#" style="margin-top:14px">About Us</a>
+    </div>
+    <div class="pic reveal d1" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1100&q=80')">
+      <span class="cap">Gill &amp; Trent Vivian</span>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOVER (FOR SALE) -->
+<section class="section sand" id="discover">
+  <div class="wrap">
+    <div class="center-head reveal"><div class="rule"></div><h2>Discover A Location You'll Love</h2><p>A considered selection of homes currently for sale across the Western Suburbs.</p></div>
+    <div class="pgrid">
+      <div class="pcard reveal">
+        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80')"></span><div class="tags"><span class="tag">New</span><span class="tag dk">Home Open</span></div></div>
+        <div class="pad"><div class="suburb">Mosman Park</div><h3>8 Wellington Street</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>612m²</b></span></div><span class="status">Offers from $2.95M</span></div>
+      </div>
+      <div class="pcard reveal d1">
+        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80')"></span><div class="tags"><span class="tag dk">Home Open</span></div></div>
+        <div class="pad"><div class="suburb">Cottesloe</div><h3>14 Marine Parade</h3><div class="specs"><span><b>4</b> Bed</span><span><b>3</b> Bath</span><span><b>2</b> Car</span><span><b>506m²</b></span></div><span class="status">Expressions of Interest</span></div>
+      </div>
+      <div class="pcard reveal d2">
+        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&q=80')"></span><div class="tags"><span class="tag">New</span></div></div>
+        <div class="pad"><div class="suburb">Claremont</div><h3>6/375 Stirling Highway</h3><div class="specs"><span><b>1</b> Bed</span><span><b>1</b> Bath</span><span><b>1</b> Car</span><span><b>72m²</b></span></div><span class="status">From $695,000</span></div>
+      </div>
+    </div>
+    <div class="viewall reveal"><a class="btn" href="#">View All For Sale</a></div>
+  </div>
+</section>
+
+<!-- PROPERTY MANAGEMENT -->
+<section class="pm" id="management">
+  <div class="pic reveal" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1100&q=80')"></div>
+  <div class="text reveal d1">
+    <div class="eyebrow">Property Management</div>
+    <h2>Your investment, in safe hands.</h2>
+    <p>Let's face it — leasing a property has become a complicated process. Here at Vivian's we make it our mission to take that responsibility off your hands, and give you peace of mind that your investment is safe and secure.</p>
+    <p>From vetting the right tenant to proactive care of your asset, we give you back the time you deserve to enjoy your life.</p>
+    <a class="btn" href="#" style="margin-top:14px">Management</a>
+  </div>
+</section>
+
+<!-- FIND A RENTAL -->
+<section class="section" id="rentals">
+  <div class="wrap">
+    <div class="center-head reveal"><div class="rule"></div><h2>Find A Rental With Ease</h2><p>Quality homes for lease, managed with the care we'd give our own.</p></div>
+    <div class="pgrid">
+      <div class="pcard reveal">
+        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80')"></span><div class="tags"><span class="tag">For Lease</span></div></div>
+        <div class="pad"><div class="suburb">Mosman Park</div><h3>19/15 Boundary Road</h3><div class="specs"><span><b>3</b> Bed</span><span><b>2</b> Bath</span><span><b>1</b> Car</span><span><b>115m²</b></span></div><span class="status">$850 per week</span></div>
+      </div>
+      <div class="pcard reveal d1">
+        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&q=80')"></span><div class="tags"><span class="tag">For Lease</span></div></div>
+        <div class="pad"><div class="suburb">Claremont</div><h3>2A Stirling Road</h3><div class="specs"><span><b>3</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>341m²</b></span></div><span class="status">$1,200 per week</span></div>
+      </div>
+      <div class="pcard reveal d2">
+        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80')"></span><div class="tags"><span class="tag">For Lease</span></div></div>
+        <div class="pad"><div class="suburb">Nedlands</div><h3>12 Vincent Street</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>728m²</b></span></div><span class="status">$1,450 per week</span></div>
+      </div>
+    </div>
+    <div class="viewall reveal"><a class="btn" href="#">View All Rentals</a></div>
+  </div>
+</section>
+
+<!-- COMMUNITY BAND -->
+<section class="band">
+  <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1505764706515-aa95265c5abc?w=1700&q=80')"></div>
+  <div class="wrap reveal">
+    <div class="eyebrow" style="color:#f0cdae">Proudly local</div>
+    <h2>A part of the Western Suburbs community — not just working in it.</h2>
+  </div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section class="section touch" id="touch">
+  <div class="wrap reveal">
+    <div class="rule"></div>
+    <h2>Get in Touch</h2>
+    <p>Whether you're buying, selling, leasing or simply after some honest advice, we'd love to hear from you.</p>
+    <a class="btn btn-fill" href="#">Contact Us</a>
+  </div>
+</section>
+
+<!-- MOSMAN PARK REPORT -->
+<section class="section report" id="report">
+  <div class="wrap reveal">
+    <div class="eyebrow">The Mosman Park Report</div>
+    <h2>Sign up to get the Mosman Park Report</h2>
+    <p>Stay up to date with the local community and get insights into how the property market is performing in Mosman Park — delivered quarterly, straight to your inbox.</p>
+    <form class="signup" onsubmit="return false">
+      <input type="email" placeholder="Your email address" required>
+      <button class="btn btn-fill" type="submit">Send Me The Report</button>
+    </form>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section sand">
+  <div class="wrap">
+    <div class="insta-head reveal"><div class="rule"></div><h2 style="font-size:38px">Follow us @viviansrealestate</h2></div>
+    <div class="insta-grid reveal d1">
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=400&q=70')"></span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fbrand">vivian's</div>
+    <div class="fsoc"><a href="#">f</a><a href="#">◎</a><a href="#">▶</a></div>
+    <div class="fcontact">(08) 9384 4600 · reception@viviansrealestate.com.au<br>43 Victoria Street, Mosman Park, WA 6012</div>
+    <div class="fcols">
+      <div class="fcol"><h4>Quick Links</h4><a href="#">Home</a><a href="#touch">Contact Us</a><a href="#report">Mosman Park Report</a><a href="#">Blog</a></div>
+      <div class="fcol"><h4>Take Action</h4><a href="#discover">Buy</a><a href="#">Sell</a><a href="#rentals">Rent</a><a href="#management">Manage</a></div>
+      <div class="fcol"><h4>Learn More</h4><a href="#why">Why Vivian's</a><a href="#">Meet The Team</a><a href="#">Vivian's Stayz</a><a href="#">Privacy Policy</a></div>
+    </div>
+    <div class="fcopy">© 2026 Vivian's Real Estate. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>60));
+const menu=document.getElementById('menu'),ov=document.getElementById('overlay');
+const open=()=>{menu.classList.add('open');ov.classList.add('open')};
+const shut=()=>{menu.classList.remove('open');ov.classList.remove('open')};
+document.getElementById('burger').onclick=open;
+document.getElementById('close').onclick=shut;
+ov.onclick=shut;
+document.querySelectorAll('.menu nav a').forEach(a=>a.onclick=shut);
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
