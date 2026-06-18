@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --orange:#df6b25; --orange-dk:#c25a1c; --ink:#272421; --grey:#6f6a62; --mute:#9a9389;
+  --orange:#ee7623; --orange-dk:#d2611a; --ink:#272421; --grey:#6f6a62; --mute:#9a9389;
   --paper:#fbfaf7; --sand:#f4efe8; --line:#e7e1d6; --line-soft:#efeae1;
   --shadow:0 16px 44px rgba(39,36,33,.12);
 }
@@ -39,11 +39,9 @@ header.solid{background:rgba(251,250,247,.94);backdrop-filter:blur(10px)}
 header.solid .bar{padding:14px 40px;border-bottom:1px solid var(--line-soft)}
 .brand{display:flex;align-items:center;gap:14px;color:#fff;transition:.4s}
 header.solid .brand{color:var(--ink)}
-.brand .name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;letter-spacing:.01em;line-height:1}
-.brand .name small{display:block;font-family:'Jost';font-weight:400;font-size:9px;letter-spacing:.42em;text-transform:uppercase;margin-top:3px;opacity:.85}
-.badge11{width:50px;height:50px;border-radius:50%;border:1.5px solid var(--orange);color:var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;line-height:.85;flex-shrink:0}
-.badge11 b{font-size:21px;font-weight:600}
-.badge11 span{font-family:'Jost';font-size:6px;letter-spacing:.12em;text-transform:uppercase;margin-top:2px}
+.logo-img{height:50px;width:auto;transition:.4s;filter:brightness(0) invert(1)}
+header.solid .logo-img{filter:none}
+.badge-img{height:52px;width:auto;flex-shrink:0}
 .burger{position:absolute;right:40px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
 .burger span{width:26px;height:1.5px;background:#fff;transition:.4s}
 header.solid .burger span{background:var(--ink)}
@@ -181,8 +179,8 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
 <header id="hdr">
   <div class="bar">
     <a href="#" class="brand">
-      <span class="name">vivian's<small>Real Estate</small></span>
-      <span class="badge11"><b>11</b><span>Years</span></span>
+      <img class="logo-img" src="assets/logo.svg" alt="Vivian's Real Estate">
+      <img class="badge-img" src="assets/badge.webp" alt="11 Year Anniversary">
     </a>
     <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
@@ -191,7 +189,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
 <!-- SLIDE MENU -->
 <div class="overlay" id="overlay"></div>
 <aside class="menu" id="menu">
-  <div class="pic" style="background-image:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=900&q=80')"></div>
+  <div class="pic" style="background-image:url('assets/people.webp')"></div>
   <div class="body">
     <div class="top"><span class="name">vivian's</span><button class="close" id="close" aria-label="Close menu">✕</button></div>
     <nav>
@@ -212,7 +210,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1900&q=80')"></div>
+  <div class="hero-bg" style="background-image:url('assets/hero.webp')"></div>
   <div class="hero-inner">
     <h1>Your Western Suburb Property Specialists</h1>
     <div class="ctas">
@@ -234,8 +232,8 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
       <p>A family-owned, boutique agency known for high standards and unmatched service — built on a simple idea: treat our clients like we would treat our own family.</p>
       <a class="btn" href="#" style="margin-top:14px">About Us</a>
     </div>
-    <div class="pic reveal d1" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1100&q=80')">
-      <span class="cap">Gill &amp; Trent Vivian</span>
+    <div class="pic reveal d1" style="background-image:url('assets/people.webp')">
+      <span class="cap">The Vivian's team</span>
     </div>
   </div>
 </section>
@@ -246,16 +244,16 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
     <div class="center-head reveal"><div class="rule"></div><h2>Discover A Location You'll Love</h2><p>A considered selection of homes currently for sale across the Western Suburbs.</p></div>
     <div class="pgrid">
       <div class="pcard reveal">
-        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80')"></span><div class="tags"><span class="tag">New</span><span class="tag dk">Home Open</span></div></div>
-        <div class="pad"><div class="suburb">Mosman Park</div><h3>8 Wellington Street</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>612m²</b></span></div><span class="status">Offers from $2.95M</span></div>
+        <div class="img"><span class="ph" style="background-image:url('assets/p-hope.jpg')"></span><div class="tags"><span class="tag">For Sale</span></div></div>
+        <div class="pad"><div class="suburb">Mosman Park</div><h3>41 Hope Street</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>4</b> Car</span><span><b>819m²</b></span></div><span class="status">From $3,550,000</span></div>
       </div>
       <div class="pcard reveal d1">
-        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80')"></span><div class="tags"><span class="tag dk">Home Open</span></div></div>
-        <div class="pad"><div class="suburb">Cottesloe</div><h3>14 Marine Parade</h3><div class="specs"><span><b>4</b> Bed</span><span><b>3</b> Bath</span><span><b>2</b> Car</span><span><b>506m²</b></span></div><span class="status">Expressions of Interest</span></div>
+        <div class="img"><span class="ph" style="background-image:url('assets/p-calais75.jpg')"></span><div class="tags"><span class="tag">For Sale</span></div></div>
+        <div class="pad"><div class="suburb">Scarborough</div><h3>75B Calais Road</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>279m²</b></span></div><span class="status">Offers in the mid-millions</span></div>
       </div>
       <div class="pcard reveal d2">
-        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&q=80')"></span><div class="tags"><span class="tag">New</span></div></div>
-        <div class="pad"><div class="suburb">Claremont</div><h3>6/375 Stirling Highway</h3><div class="specs"><span><b>1</b> Bed</span><span><b>1</b> Bath</span><span><b>1</b> Car</span><span><b>72m²</b></span></div><span class="status">From $695,000</span></div>
+        <div class="img"><span class="ph" style="background-image:url('assets/p-cutting.jpg')"></span><div class="tags"><span class="tag dk">Home Open</span></div></div>
+        <div class="pad"><div class="suburb">Mosman Park</div><h3>24 The Cutting</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>3</b> Car</span><span><b>350m²</b></span></div><span class="status">Contact Agent</span></div>
       </div>
     </div>
     <div class="viewall reveal"><a class="btn" href="#">View All For Sale</a></div>
@@ -264,7 +262,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
 
 <!-- PROPERTY MANAGEMENT -->
 <section class="pm" id="management">
-  <div class="pic reveal" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1100&q=80')"></div>
+  <div class="pic reveal" style="background-image:url('assets/p-hope.jpg')"></div>
   <div class="text reveal d1">
     <div class="eyebrow">Property Management</div>
     <h2>Your investment, in safe hands.</h2>
@@ -277,22 +275,22 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
 <!-- FIND A RENTAL -->
 <section class="section" id="rentals">
   <div class="wrap">
-    <div class="center-head reveal"><div class="rule"></div><h2>Find A Rental With Ease</h2><p>Quality homes for lease, managed with the care we'd give our own.</p></div>
+    <div class="center-head reveal"><div class="rule"></div><h2>Recently Listed</h2><p>A selection of the homes currently with Vivian's across the Western Suburbs.</p></div>
     <div class="pgrid">
       <div class="pcard reveal">
-        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80')"></span><div class="tags"><span class="tag">For Lease</span></div></div>
-        <div class="pad"><div class="suburb">Mosman Park</div><h3>19/15 Boundary Road</h3><div class="specs"><span><b>3</b> Bed</span><span><b>2</b> Bath</span><span><b>1</b> Car</span><span><b>115m²</b></span></div><span class="status">$850 per week</span></div>
+        <div class="img"><span class="ph" style="background-image:url('assets/p-freeman.jpg')"></span><div class="tags"><span class="tag">For Sale</span></div></div>
+        <div class="pad"><div class="suburb">Bushmead</div><h3>16 Freeman View</h3><div class="specs"><span><b>3</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>445m²</b></span></div><span class="status">From $1,190,000</span></div>
       </div>
       <div class="pcard reveal d1">
-        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&q=80')"></span><div class="tags"><span class="tag">For Lease</span></div></div>
-        <div class="pad"><div class="suburb">Claremont</div><h3>2A Stirling Road</h3><div class="specs"><span><b>3</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>341m²</b></span></div><span class="status">$1,200 per week</span></div>
+        <div class="img"><span class="ph" style="background-image:url('assets/p-warringah.jpg')"></span><div class="tags"><span class="tag dk">Back on Market</span></div></div>
+        <div class="pad"><div class="suburb">Kallaroo</div><h3>20 Warringah Close</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>855m²</b></span></div><span class="status">Second chance — enquire now</span></div>
       </div>
       <div class="pcard reveal d2">
-        <div class="img"><span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80')"></span><div class="tags"><span class="tag">For Lease</span></div></div>
-        <div class="pad"><div class="suburb">Nedlands</div><h3>12 Vincent Street</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>728m²</b></span></div><span class="status">$1,450 per week</span></div>
+        <div class="img"><span class="ph" style="background-image:url('assets/p-calais71.jpg')"></span><div class="tags"><span class="tag dk">Under Offer</span></div></div>
+        <div class="pad"><div class="suburb">Scarborough</div><h3>71C Calais Road</h3><div class="specs"><span><b>4</b> Bed</span><span><b>2</b> Bath</span><span><b>2</b> Car</span><span><b>286m²</b></span></div><span class="status">Under Offer</span></div>
       </div>
     </div>
-    <div class="viewall reveal"><a class="btn" href="#">View All Rentals</a></div>
+    <div class="viewall reveal"><a class="btn" href="#">View All Listings</a></div>
   </div>
 </section>
 
@@ -333,12 +331,12 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
   <div class="wrap">
     <div class="insta-head reveal"><div class="rule"></div><h2 style="font-size:38px">Follow us @viviansrealestate</h2></div>
     <div class="insta-grid reveal d1">
-      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=70')"></span>
-      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=70')"></span>
-      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&q=70')"></span>
-      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=70')"></span>
-      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=400&q=70')"></span>
-      <span class="ph" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=400&q=70')"></span>
+      <span class="ph" style="background-image:url('assets/ig1.png')"></span>
+      <span class="ph" style="background-image:url('assets/ig2.png')"></span>
+      <span class="ph" style="background-image:url('assets/ig3.png')"></span>
+      <span class="ph" style="background-image:url('assets/ig4.png')"></span>
+      <span class="ph" style="background-image:url('assets/office.webp')"></span>
+      <span class="ph" style="background-image:url('assets/people.webp')"></span>
     </div>
   </div>
 </section>
@@ -346,7 +344,7 @@ footer{background:var(--paper);border-top:1px solid var(--line);padding:80px 0 3
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="fbrand">vivian's</div>
+    <img src="assets/logo.svg" alt="Vivian's Real Estate" style="height:64px;width:auto;margin:0 auto 4px">
     <div class="fsoc"><a href="#">f</a><a href="#">◎</a><a href="#">▶</a></div>
     <div class="fcontact">(08) 9384 4600 · reception@viviansrealestate.com.au<br>43 Victoria Street, Mosman Park, WA 6012</div>
     <div class="fcols">
